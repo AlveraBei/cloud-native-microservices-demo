@@ -11,7 +11,8 @@ public class UserController {
 	public Map<String, Object> getUser() {
     	return Map.of(
             	"id", 1,
-            	"name", "Bei"
+            	"name", "Bei",
+				"test", "CI/CD is working!"
     	);
 	}
 
