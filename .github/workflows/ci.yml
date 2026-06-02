@@ -1,0 +1,33 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: Checkout repository
+          uses: actions/checkout@v3
+        - name: Set up Java 17
+          uses: actions/setup-java@v3
+          with:
+            distribution: 'temurin'
+            java-version: '17'
+
+        #  Build user-service
+        - name: Build user-service
+          working-directory: ./user-service
+          run: mvn clean package
+
+        # Build order-service
+        - name: Build order-service
+          working-directory: ./order-service
+          run: mvn clean package
+
+        # verify build
+        - name: Verify build
+          run: echo "Build success"
+
