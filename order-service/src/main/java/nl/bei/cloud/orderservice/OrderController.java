@@ -15,7 +15,7 @@ public class OrderController {
 
     	// 调用 user-service 
     	Map user = restTemplate.getForObject(
-            	"https://cloud-user-service-gbpz.onrender.com/user",
+            	"http://user-service/user",
             	Map.class
     	);
 
